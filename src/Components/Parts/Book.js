@@ -1,5 +1,6 @@
 import React, {Suspense, lazy} from "react";
 import BkPlaceholder from "./Book-Parts/BookPlaceholder";
+import "./Book.css";
 
 function Book(props) {
   const LazyBkMain = lazy(() =>  import("./Book-Parts/BookMain"));

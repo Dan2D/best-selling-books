@@ -1,17 +1,29 @@
-import React, {Component} from "react";
-// import {getHomeContent} from "../../Store/Actions/genresActions";
+import React, {useEffect} from "react";
+import {getHomeContent} from "../../Store/Actions/genresActions";
 import { connect } from "react-redux";
 // import Loading from "../../Loading";
 import HomeGenre from "./HomeGenre";
-import '../App/App.css';
+import "./Home.css";
 
-class Home extends Component{
-  render(){
-    if (this.props.isLoading) {
+const mapDispatchToProps = dispatch => {
+    return {
+    getHomeContent: () => {
+      dispatch(getHomeContent);
+    }
+  }
+}
+
+function Home(props) {
+  const {getHomeContent} = props;
+  useEffect(() => {
+    getHomeContent();
+  }, [getHomeContent])
+  
+    if (props.genreLoading) {
       return <div>LOADING...</div>
     }
-    if (this.props.genreLst.length > 0){
-      var mainGenres = this.props.genreLst.slice(0, 5);
+    if (props.genreLst.length > 0){
+      var mainGenres = props.genreLst.slice(0, 5);
       var homeGenreList = [];
 
       function genHomeGenre(genreLst) {
@@ -29,12 +41,11 @@ class Home extends Component{
     }
     return <div className="overview-container">{homeGenreList}</div>;  
   }
-}
  
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     genreLst: state.genres.list,
-    isLoading: state.content.isLoading
+    genreLoading: state.genres.genreLoading
   };
 };
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

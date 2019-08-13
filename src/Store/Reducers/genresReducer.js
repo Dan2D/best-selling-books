@@ -25,8 +25,21 @@ import {
       return {
         ...state,
         text: "",
-        list: action.payload
+        list: action.payload,
+        genreLoading: false,
       };
+      case GET_NEW_GENRE:
+          return {
+            ...state,
+            list: action.payload,
+            text: action.genreTxt,
+            genreLoading: false,
+          };
+      case IS_LOADING:
+        return {
+          ...state,
+          genreLoading: action.payload
+        }
       default:
         return state;
     }

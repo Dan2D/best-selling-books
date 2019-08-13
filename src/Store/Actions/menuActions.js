@@ -21,5 +21,4 @@ export const getGenres = dispatch => {
         payload: genres.results
       })
     )
-    .then(() => dispatch({type: IS_LOADING, payload: false}));
 };

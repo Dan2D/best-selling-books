@@ -1,26 +1,32 @@
 export const initialState = {
     content: {
         text: "",
-        isLoading: true
     },
        detail: {
+        book: {},
            cover: "",
-           book: {}
+           detailLoading: true
+           
        },
        genres: {
            dateCurr: "",
            dateMin: "",
            dateMax: "",
+           genreLoading: true,
            list: {},
            text: ""
        },
-       menu: {},
+       menu: {
+           genreMenu: {},
+           menuLoading: true
+       },
        search: {
             books: [],
             pg: 0,
             prevSearch: "",
             prevType: "",
             results: 0,
+            searchLoading: true,
             text: "",
             type: ""
        }

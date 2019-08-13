@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import {isLoading} from "../../Store/Actions/contentActions";
 import {getHomeAndGenreMenu, getHomeContent} from "../../Store/Actions/genresActions";
+import {getGenres} from "../../Store/Actions/menuActions";
 import Searchbar from "./Searchbar";
 import Datebar from "./Datebar";
 import Menu from "./GenreMenu/Menu";
@@ -14,6 +15,9 @@ const mapDispatchToProps = dispatch => {
       loadingTrue: () => {
         dispatch(isLoading(true))
       },
+      getGenres: () => {
+        dispatch(getGenres);
+      },
       getHomeAndGenreMenu: () => {
          dispatch(getHomeAndGenreMenu);
       }
@@ -21,17 +25,21 @@ const mapDispatchToProps = dispatch => {
 }
 
 function Header(props) {
-  const {loadingTrue, getHomeAndGenreMenu} = props;
+  const {loadingTrue, getGenres} = props;
     useEffect(() => {
-      getHomeAndGenreMenu();
-    },[loadingTrue, getHomeAndGenreMenu])
+      getGenres();
+    },[loadingTrue, getGenres])
 
   const handleHomeClick = () => {
     if (props.content !== "home"){
       return getHomeContent();
     }
   }
-  if (props.isLoading) {return <div>NAV</div>}
+  
+  if (props.menuLoading) {
+    return <div>NAV</div>
+  }
+
   return (
     <nav className="nav">
       <div className="nav-top">
@@ -71,7 +79,7 @@ function Header(props) {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.content.isLoading
+    menuLoading: state.menu.menuLoading
   }
 }
 

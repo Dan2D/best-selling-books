@@ -23,6 +23,11 @@ import {
         ...state,
         content: 'home',
       };
+      case GET_NEW_GENRE:
+          return {
+            ...state,
+            content: 'genre',
+          };
       case IS_LOADING:
         return {
           ...state,

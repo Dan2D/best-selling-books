@@ -52,7 +52,7 @@ function Menu(props) {
 
 const mapStateToProps = state => {
   return {
-    menu: state.menu
+    menu: state.menu.genreMenu
   }
 }
 

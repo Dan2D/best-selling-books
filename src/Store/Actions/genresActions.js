@@ -47,9 +47,6 @@ import {
           payload: genres.results.lists
         });
       })
-      .then(() => {
-        dispatch({type:IS_LOADING, payload: false})
-      })
     )
   };
 
@@ -61,6 +58,22 @@ import {
         dispatch({
           type: UPDATE_CONTENT_DATE,
           payload: genres.results.lists
+        });
+      });
+    };
+  };
+
+  export const genreView = (genreTxt) => {
+    console.log(genreTxt, "GENRE")
+    return function(dispatch) {
+      dispatch({type: IS_LOADING, payload: true});
+      fetchJSON(
+        `${CORS}https://api.nytimes.com/svc/books/v3/lists/${genreTxt}.json?api-key=${NYT_API_KEY}`
+      ).then(genres => {
+        dispatch({
+          type: GET_NEW_GENRE,
+          payload: genres.results,
+          genreTxt,
         });
       });
     };
