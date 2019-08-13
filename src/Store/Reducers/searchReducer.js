@@ -5,12 +5,17 @@ import {GET_NEW_GENRE, GET_HOME_CONTENT, GET_SEARCH_TXT, SEARCH_TYPE, SEARCH_AUT
 const searchReducers = (state = "", action) => {
     switch(action.type){
         case SEARCH_TITLE:
+            console.log(action.et)
                 return {
                     ...state,
-                    prevSearch: action.text,
-                    text: action.text,
+                    prevSearch: action.searchTxt,
+                    text: action.searchTxt,
+                    books: action.bookArr,
+                    pg: action.pg,
+                    results: action.totalResults,
                     prevType: "title",
-                    type: "title"
+                    type: "title",
+                    searchLoading: false
                 }
         case SEARCH_AUTH:
             return {
@@ -18,7 +23,8 @@ const searchReducers = (state = "", action) => {
                 prevSearch: action.text,
                 text: action.text,
                 prevType: "author",
-                type: "author"
+                type: "author",
+                searchLoading: false
             }
             case GET_HOME_CONTENT:
                 return {
