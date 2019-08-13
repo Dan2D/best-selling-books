@@ -10,27 +10,28 @@ import {
   } from "../Actions/types";
   
   let initialState = {
-       genres: {
-           dateCurr: "",
-           dateMin: "",
-           dateMax: "",
-           list: {},
-           text: ""
-       }
+      content: {
+        text: "",
+        isLoading: false,
+      }
   };
   
-  const genresReducer = (state = initialState, action) => {
+  const contentReducer = (state = initialState, action) => {
     switch (action.type) {
       case GET_HOME_CONTENT:
       return {
         ...state,
-        text: "",
-        list: action.payload
+        content: 'home',
       };
+      case IS_LOADING:
+        return {
+          ...state,
+          isLoading: action.payload
+        }
       default:
         return state;
     }
   };
   
-  export default genresReducer;
+  export default contentReducer;
   

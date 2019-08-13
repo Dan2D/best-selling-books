@@ -1,0 +1,321 @@
+  .nav__site-title,
+  .search input,
+  .search__type,
+  .search__btn,
+  .genre-menu__sub-genre h5,
+  .genre-menu__sub-genre button,
+  .date-picker button,
+  .date-picker input {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  
+  .nav,
+  div.search,
+  .genre-menu,
+  .genre-menu__btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    flex-direction: column;
+    background: #fffef8;
+    z-index: 2;
+  }
+  
+  .nav-top {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .nav__title-corner {
+    position: relative;
+    min-height: 75px;
+    min-width: 75px;
+    background: linear-gradient(135deg, #787257 50%, #f1edda 50%);
+  }
+  
+  .nav__site-title {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    font-size: 25px;
+    line-height: 20px;
+    margin: 0;
+    color: #77756b;
+  }
+  
+  .nav__home-btn {
+    margin: 5px;
+    padding: 0;
+    font-size: 18px;
+    color: #333126;
+  }
+  
+  .nav__home-btn img {
+    height: 20px;
+  }
+  
+  .nav-menu {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .search {
+    margin: 5px 0;
+    align-self:center;
+    border: none;
+  }
+  
+  .search input,
+  .search__type,
+  .date-picker input {
+    border-radius: 4px;
+    border: 2px solid #d9d5c4;
+    margin: 0 0.5vh;
+  }
+  
+  .search input {
+    width: 30vw;
+  }
+  
+  .search__type {
+    min-width: 63px;
+    background-image: url("../../Images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: 90%;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  .search__btn,
+  .date-picker__go-btn {
+    color: white;
+    background: #aaa58e;
+    border: none;
+  }
+  
+  .search__btn {
+    border-radius: 5px;
+  }
+  
+  .nav-bottom {
+    background: #fffef8;
+  }
+  
+  .genre-menu {
+    justify-content: space-around;
+    border-top: 2px solid #e5e0c9;
+    border-bottom: 2px solid #e5e0c9;
+  }
+  
+  .genre-menu__sub-genre {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    width: 24vw;
+  }
+  
+  .genre-menu__sub-genre > button {
+    border-radius: 4px 4px 0 0;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .genre-menu__sub-genre h5 {
+    margin: 0;
+  }
+  
+  .genre-menu__btns {
+    position: absolute;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    margin-top: 0px;
+    border-radius: 0 4px 4px 4px;
+    background: #aaa58e;
+    cursor: default;
+    visibility: hidden;
+  }
+  
+  .genre-menu__btns button {
+    padding: 2px;
+    max-width: 50vw;
+    min-width: 150px;
+  }
+  
+  .sub-genre--right .genre-menu__btns {
+    border-radius: 4px 0 4px 4px;
+    right: 0;
+  }
+  
+  .sub-genre--right .genre-menu__btns button {
+    align-self: flex-end;
+    text-align: right;
+  }
+  
+  .genre-menu__btns[data-ref="Fiction/Non-Fiction"] button,
+  .genre-menu__btns[data-ref="Young Adult."] button {
+    max-width: 100vw;
+  }
+  
+  .genre-menu__btns[data-ref="Misc."] a {
+    max-width: 50vw;
+    white-space: normal;
+  }
+  
+  .genre-menu__btns[data-ref="Misc."] {
+    min-width: 100vw;
+    max-height: 70vh;
+  }
+  
+  .genre-menu__btns button:hover {
+    text-decoration: underline;
+  }
+  
+  .genre-menu__sub-genre > button:focus,
+  .genre-menu__sub-genre:hover > button {
+    background: #aaa58e;
+    color: white;
+  }
+  
+  .genre-menu__sub-genre > button:focus + .genre-menu__btns,
+  .genre-menu__btns:hover {
+    visibility: visible;
+  }
+  
+  .genre-menu__btns button {
+    align-self: flex-start;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .date-picker input,
+  .date-picker button {
+    padding: 2px;
+  }
+  
+  .date-picker,
+  .date-picker__wk-btn {
+    display: flex;
+    align-items: center;
+  }
+  
+  .date-picker__wk-btn {
+    width: 50px;
+  }
+  
+  .arrow-down,
+  .arrow-left,
+  .arrow-right {
+    height: 5px;
+    width: 10px;
+  }
+  
+  .arrow-left {
+    transform: rotate(90deg)
+  }
+  
+  .arrow-right {
+    transform: rotate(-90deg)
+  }
+  
+  .date-picker {
+    margin: 2px auto;
+  }
+  
+  .date-picker input {
+    max-width: 80px;
+    cursor: default;
+  }
+  
+  .date-picker__go-btn {
+    margin-left: 5px;
+    border-radius: 100%;
+  }
+  
+  .react-datepicker__triangle {
+    display: none;
+  }
+  
+  div.react-datepicker-popper {
+    transform: none !important;
+    top: 110px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 243px;
+    margin: auto;
+    z-index: 5;
+  }
+  
+  .content-container {
+    margin: var(--nav-height) 5px 0 5px;
+    padding-top: 2vh;
+    min-height: 100vh;
+    font-family: Quicksand, sans-serif;
+    background: #fffef8;
+  }
+  
+  @media screen and (min-width:481px){
+    .sub-genre--right .genre-menu__btns {
+      align-items:flex-end;
+    }
+  
+    .genre-menu__btns[data-ref="Misc."]{
+      min-width: 415px;
+    }
+  
+  .genre-menu__btns button {
+    max-width: auto;
+    white-space: nowrap;
+    }
+  
+    .date-picker__wk-btn {
+      width: 90px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .search input,
+    .search__type,
+    .search__btn,
+    .genre-menu__sub-genre h5,
+    .genre-menu__sub-genre button,
+    .date-picker button,
+    .date-picker input {
+      font-size: 15px;
+    }
+  
+    .search__type {
+      min-width: 75px;
+    }
+  
+    .genre-menu__btns {
+      min-width: 30vw;
+    }
+  
+    .genre-menu__btns[data-ref="Misc."] {
+      min-width: 65vw;
+      max-height: 50vh;
+      padding-right: 15px;
+    }
+  
+  }
+  
+  

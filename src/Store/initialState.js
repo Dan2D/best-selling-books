@@ -1,6 +1,8 @@
 export const initialState = {
-       content: "",
-       isLoading: false,
+    content: {
+        text: "",
+        isLoading: true
+    },
        detail: {
            cover: "",
            book: {}
@@ -16,6 +18,8 @@ export const initialState = {
        search: {
             books: [],
             pg: 0,
+            prevSearch: "",
+            prevType: "",
             results: 0,
             text: "",
             type: ""

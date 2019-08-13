@@ -1,40 +1,45 @@
 import {GET_NEW_GENRE, GET_HOME_CONTENT, GET_SEARCH_TXT, SEARCH_TYPE, SEARCH_AUTH, SEARCH_TITLE} from "../Actions/types";
-import {initialState} from "../initialState";
 
 
-const searchReducers = (state = initialState, action) => {
+
+const searchReducers = (state = "", action) => {
     switch(action.type){
+        case SEARCH_TITLE:
+                return {
+                    ...state,
+                    prevSearch: action.text,
+                    text: action.text,
+                    prevType: "title",
+                    type: "title"
+                }
         case SEARCH_AUTH:
             return {
                 ...state,
-                searchTxt: action.searchTxt,
-                searchType: 'author'
+                prevSearch: action.text,
+                text: action.text,
+                prevType: "author",
+                type: "author"
             }
             case GET_HOME_CONTENT:
                 return {
                     ...state,
-                    searchTxt: "",
-                    searchType: 'title'
+                    text: "",
+                    type: 'title'
                 }
         case GET_NEW_GENRE:
             return{
                 ...state,
-                searchTxt: "",
-                searchType: 'title'
+                text: "",
+                type: 'title'
             }
         case GET_SEARCH_TXT:
             return {
                 ...state,
-                searchTxt: action.payload}
+                text: action.payload}
         case SEARCH_TYPE:
             return {
                 ...state,
-                searchType: action.payload
-            }
-        case SEARCH_TITLE:
-            return {
-                ...state,
-                searchTxt: action.searchTxt
+                type: action.payload
             }
         default:
             return state;
