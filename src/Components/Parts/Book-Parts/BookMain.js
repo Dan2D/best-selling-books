@@ -1,6 +1,6 @@
 import React from "react";
 import AuthorArray from "./AuthArray"
-import {isLoading} from "../../../Store/Actions/contentActions";
+import {detailLoading} from "../../../Store/Actions/detailActions";
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -19,7 +19,7 @@ function BookMain(props) {
       <div className="book-container__cover" data-ref={props.type}>
         <Link 
         to={{pathname: `/book/${props.isbn}`, state: {bkCover, buyLnk: props.buyLnk}}}
-        onClick={() => props.dispatch(isLoading(true))}
+        onClick={() => props.dispatch(detailLoading(true))}
         >
           <img  src={bkCover} alt={props.title} />
         </Link>
@@ -28,7 +28,7 @@ function BookMain(props) {
       <Link 
       to={{pathname: `/book/${props.isbn}`, state: {bkCover, buyLnk: props.buyLnk}}} 
       className="book-title"
-      onClick={() => props.dispatch(isLoading(true))}
+      onClick={() => props.dispatch(detailLoading(true))}
       >
         {props.title}
       </Link>

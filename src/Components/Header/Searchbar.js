@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {isLoading} from "../../Store/Actions/contentActions";
-import {updateSearchTxt, updateSearchType, } from "../../Store/Actions/searchActions";
+import {updateSearchTxt, updateSearchType, searchLoading} from "../../Store/Actions/searchActions";
 import {connect} from "react-redux";
 
 function Searchbar(props) {
@@ -24,10 +23,10 @@ function Searchbar(props) {
   function handleSearchSubmit(e) {
     e.preventDefault();
     if (props.search.text === "" || (props.search.prevSearch === props.search.text && props.search.type === props.search.prevType)){
-      return;
+      return null;
     }
     let searchLnk = document.getElementById("search-link");
-    props.dispatch(isLoading(true));
+    props.dispatch(searchLoading(true));
     searchLnk.click()
   }
 
@@ -35,7 +34,7 @@ function Searchbar(props) {
     <div className="search">
       <select
         className="search search__type"
-        value={props.searchType}
+        value={props.search.type}
         onChange={handleSelectUpdate}
         name="search-options"
       >
@@ -48,14 +47,13 @@ function Searchbar(props) {
         placeholder="Search..."
         onChange={handleSearchText}
         onKeyDown={handleEnter}
-        value={props.searchTxt}
+        value={props.search.text}
       />
       <Link 
         id="search-link" 
         to={`/search/${props.search.type}=${props.search.text.replace(" ", "+")}&pg=1`}
-        onClick={() => handleSearchSubmit}
         >
-        <button className="search search__btn">
+        <button className="search search__btn" onClick={(e) => handleSearchSubmit(e)}>
           Search
         </button>
       </Link>

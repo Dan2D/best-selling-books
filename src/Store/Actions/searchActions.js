@@ -1,5 +1,5 @@
-import {GET_SEARCH_TXT, SEARCH_TYPE, IS_LOADING, NO_DATA, SEARCH_AUTH, SEARCH_TITLE} from "../Actions/types";
-import {API_CALLS, fetchXML, getAuthId, getBookId} from "../../Util/APICalls";
+import {GET_SEARCH_TXT, SEARCH_TYPE, IS_LOADING, NO_DATA, SEARCH_AUTH, SEARCH_TITLE, SEARCH_LOAD} from "../Actions/types";
+import {API_CALLS, fetchXML, getAuthId} from "../../Util/APICalls";
   
 const { GR_KEY } = API_CALLS["GR"];
 const CORS = "https://cors-anywhere.herokuapp.com/";
@@ -20,7 +20,6 @@ export function updateSearchType(type){
 
 export const getSearchTitle = (searchTxt, pg = 1) => {
   return function(dispatch) {
-    dispatch({type: IS_LOADING, payload: true});
     fetchXML(
       `${CORS}https://www.goodreads.com/search/index.xml?key=${GR_KEY}&search=title&q=${searchTxt}&page=${pg}`
     ).then(data => {
@@ -48,14 +47,12 @@ export const getSearchTitle = (searchTxt, pg = 1) => {
         totalResults,
         pg
       });
-      dispatch({type: IS_LOADING, payload: false});
     });
   };
 };
 
 export const getSearchAuth = searchTxt => {
     return function(dispatch) {
-      dispatch({type: IS_LOADING, payload: true});
       getAuthId(
         `${CORS}https://www.goodreads.com/api/author_url/${searchTxt}?key=${GR_KEY}`
       )
@@ -94,10 +91,14 @@ export const getSearchAuth = searchTxt => {
             authorInfo,
             searchTxt
           });
-          dispatch({type: IS_LOADING, payload: false});
         });
     };
   };
 
-
+export const searchLoading = bool => {
+  return {
+    type: SEARCH_LOAD,
+    payload: bool
+  }
+}
 

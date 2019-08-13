@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/genre/:genre"  component={Genres} />
-          {/* <Route path="/book/:id"  component={DetailBook} /> */}
+          <Route path="/book/:id"  component={DetailBook} />
           <Route path="/search/:type=:text&pg=:pg" component={SearchResults} />
         </Switch>
       </div>

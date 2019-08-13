@@ -2,7 +2,6 @@ import React from "react";
 import SubMenuLnks from "./SubMenuLnks";
 
 function SubMenu(props) {
-    console.log(props.genreLst)
   function handleGenreClick(e) {
     e.currentTarget.querySelector("h5").style.color = "white";
     e.currentTarget.style.background = "#AAA58E";

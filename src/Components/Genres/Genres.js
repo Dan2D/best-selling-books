@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => {
 //       genreView(props.match.params.genre);
 //   }
 
-    if (props.genreLoading){
+    if (props.genreLoading || props.match.params.genre !== props.genreTxt){
       return <div>Loading...</div>
     }
     document.querySelectorAll("genre-menu__btns").forEach(item => (item.style.visibility = "hidden"));

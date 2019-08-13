@@ -1,7 +1,7 @@
 import React from "react";
 import Book from "../Parts/Book";
 import {isbnAssign} from "../../Util/bookHelpers";
-import {isLoading} from "../../Store/Actions/contentActions";
+import {genreLoading} from "../../Store/Actions/genresActions";
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
 
@@ -26,7 +26,7 @@ function HomeGenre(props) {
       <Link 
        to={{pathname: `/genre/${props.genre.list_name_encoded}`}}
        className="overview-genre__title" 
-       onClick={() => props.dispatch(isLoading(true))}
+       onClick={() => props.dispatch(genreLoading(true))}
       >
         {props.genre.display_name}
       </Link>

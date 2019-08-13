@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import {Link} from "react-router-dom";
+import {searchLoading,} from "../../Store/Actions/searchActions";
+import {connect} from "react-redux";
 import BookPlaceholder from "../Parts/Book-Parts/BookPlaceholder";
 
 function SrchBk(props) {
@@ -6,7 +9,10 @@ function SrchBk(props) {
    let rvwLnk;
  
    function handleAuthClick(e) {
-    return props.onAuthClick(e.target.innerText, "author");
+     e.preventDefault();
+     props.dispatch(searchLoading(true));
+     e.target.parentElement.click();
+    // return props.onAuthClick(e.target.innerText, "author");
   }
 
   useEffect(() => {
@@ -40,12 +46,14 @@ function SrchBk(props) {
           {props.searchType === "title" ? (
             <div className="srch-bk-container__author-info">
               <p>by: </p>
-              <button
-                className="srch-bk-container__author-btns"
-                onClick={e => handleAuthClick(e)}
-              >
-                {props.author}
-              </button>
+              <Link to={`/search/author=${props.author}&pg=1`}>
+                <button
+                  className="srch-bk-container__author-btns"
+                  onClick={e => handleAuthClick(e)}
+                >
+                  {props.author}
+                </button>
+              </Link>
             </div>
           ) : null}
           <p>Published: {props.pubDt}</p>
@@ -58,4 +66,4 @@ function SrchBk(props) {
   );
 }
 
-export default SrchBk;
+export default connect(null)(SrchBk);

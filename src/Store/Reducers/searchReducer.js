@@ -3,7 +3,8 @@ import {GET_NEW_GENRE,
       GET_SEARCH_TXT, SEARCH_TYPE, 
       SEARCH_AUTH, 
       SEARCH_TITLE, 
-      NO_DATA} from "../Actions/types";
+      NO_DATA,
+      SEARCH_LOAD} from "../Actions/types";
 
 
 
@@ -59,6 +60,11 @@ const searchReducers = (state = "", action) => {
                 ...state,
                 results: 0,
                 searchLoading: false
+            }
+        case SEARCH_LOAD:
+            return {
+                ...state,
+                searchLoading: action.payload
             }
         default:
             return state;

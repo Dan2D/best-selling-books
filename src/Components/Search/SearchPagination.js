@@ -1,5 +1,5 @@
 import React from "react";
-import {isLoading} from "../../Store/Actions/genresActions";
+import {searchLoading} from "../../Store/Actions/searchActions";
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
 import smoothscroll from "smoothscroll-polyfill";
@@ -16,7 +16,7 @@ function SrchBtns(props) {
       books[i].style.display = "none";
     }
     window.scrollTo(0, 0);
-    props.dispatch(isLoading(true));
+    props.dispatch(searchLoading(true));
   }
 
   function genPgBtns(pgTotal) {

@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
-import {genreView} from "../../../Store/Actions/genresActions";
+import {genreView, genreLoading} from "../../../Store/Actions/genresActions";
 
 function SubMenuLnks(props) {
 
@@ -11,6 +11,7 @@ function SubMenuLnks(props) {
     let minDate = e.currentTarget.dataset.minDate;
     let maxDate = e.currentTarget.dataset.maxDate;
     // props.dispatch(genreView(genre, minDate, maxDate));
+    props.dispatch(genreLoading(true));
     e.target.parentElement.parentElement.style.visibility = "hidden";
     e.target.parentElement.click();
   }

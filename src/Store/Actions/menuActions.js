@@ -1,4 +1,4 @@
-import { GET_GENRES, IS_LOADING } from "./types";
+import {GET_GENRES} from "./types";
 import {API_CALLS} from "../../Util/APICalls";
 
 const { NYT_API_KEY } = API_CALLS["NYT"];
