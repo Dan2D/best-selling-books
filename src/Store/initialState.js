@@ -21,6 +21,7 @@ export const initialState = {
            menuLoading: true
        },
        search: {
+           author: {},
             books: [],
             pg: 0,
             prevSearch: "",
@@ -28,7 +29,7 @@ export const initialState = {
             results: 0,
             searchLoading: true,
             text: "",
-            type: ""
+            type: "title"
        }
   };
   

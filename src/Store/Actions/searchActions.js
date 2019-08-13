@@ -19,7 +19,6 @@ export function updateSearchType(type){
 };
 
 export const getSearchTitle = (searchTxt, pg = 1) => {
-  console.log(pg)
   return function(dispatch) {
     dispatch({type: IS_LOADING, payload: true});
     fetchXML(

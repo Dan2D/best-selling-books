@@ -1,11 +1,15 @@
-import {GET_NEW_GENRE, GET_HOME_CONTENT, GET_SEARCH_TXT, SEARCH_TYPE, SEARCH_AUTH, SEARCH_TITLE} from "../Actions/types";
+import {GET_NEW_GENRE,
+      GET_HOME_CONTENT,
+      GET_SEARCH_TXT, SEARCH_TYPE, 
+      SEARCH_AUTH, 
+      SEARCH_TITLE, 
+      NO_DATA} from "../Actions/types";
 
 
 
 const searchReducers = (state = "", action) => {
     switch(action.type){
         case SEARCH_TITLE:
-            console.log(action.et)
                 return {
                     ...state,
                     prevSearch: action.searchTxt,
@@ -20,10 +24,13 @@ const searchReducers = (state = "", action) => {
         case SEARCH_AUTH:
             return {
                 ...state,
-                prevSearch: action.text,
-                text: action.text,
+                author: action.authorInfo,
+                books: action.bookArr,
+                prevSearch: action.searchTxt,
+                text: action.searchTxt,
                 prevType: "author",
                 type: "author",
+                results: 1,
                 searchLoading: false
             }
             case GET_HOME_CONTENT:
@@ -46,6 +53,12 @@ const searchReducers = (state = "", action) => {
             return {
                 ...state,
                 type: action.payload
+            }
+        case NO_DATA:
+            return {
+                ...state,
+                results: 0,
+                searchLoading: false
             }
         default:
             return state;

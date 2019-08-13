@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => {
         }
     }
 }
-// TODO(FIX AUTHORS FOR SEARCH, NOT SHOWING UP)
 function SrchRslt(props) {
     const {getSearchTitle, getSearchAuth} = props;
     useEffect(() => {
@@ -29,18 +28,12 @@ function SrchRslt(props) {
             getSearchAuth(props.match.params.text);
         }
     }, [getSearchTitle, getSearchAuth, props.match.params])
-    // if (props.pg != props.match.params.pg || props.page.type !== props.match.params.type || props.page.text !== props.match.params.text){
-    //   if (props.match.params.type === "title"){
-    //     props.dispatch(getSearchTitle(props.match.params.text, props.match.params.pg));
-    //   }
-    //   else{props.dispatch(getSearchAuth(props.match.params.text));}
-    // }
 
     if (props.searchLoading){
       return <div>Loading...</div>
     }
 
-    if (props.results === 0) {
+    if (props.results == 0) {
       return <NotFound />;
     }
 
@@ -51,8 +44,8 @@ function SrchRslt(props) {
       return (
         <SearchBook
           key={book.title + indx}
-          onAuthClick={(author, srchTyp) => props.onAuthClick(author, srchTyp)}
-          srchType={props.srchType}
+          onAuthClick={(author, searchType) => getSearchAuth(author, searchType)}
+          searchType={props.match.params.type}
           author={book.author}
           indx={book.indx}
           id={book.id}
@@ -62,7 +55,6 @@ function SrchRslt(props) {
         />
       );
     });
-
 
     return (
       <div className="srch-container">
@@ -110,7 +102,7 @@ const mapStateToProps = (state) => {
     bookArr: state.search.books,
     pg: state.search.pg,
     results: state.search.results,
-    author: state.search,
+    author: state.search.author,
     searchLoading: state.search.searchLoading
   }
 }

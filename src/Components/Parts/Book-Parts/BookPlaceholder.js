@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader";
 
 function BookPlaceholder(props) {
     return (
-        <ContentLoader
+      <ContentLoader
       className="book-placeholder"
       height={550}
       width={300}

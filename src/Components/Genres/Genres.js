@@ -14,10 +14,8 @@ const mapDispatchToProps = dispatch => {
 }
 
  function Genres(props) {
-   console.log(props.match.params.genre)
      const {genreView} = props;
      useEffect(() => {
-         console.log(props.match.params.genre)
         genreView(props.match.params.genre);
      }, [genreView, props.match.params.genre])
 
