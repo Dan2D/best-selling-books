@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => {
 function SingleBk (props) {
     const {getBookDetail} = props;
     useEffect(() => {
+      document.documentElement.scrollTo(0,0);
         getBookDetail(props.location.state.bkCover, props.match.params.id);
     }, [getBookDetail, props.match.params.id, props.location.state.bkCover])
 

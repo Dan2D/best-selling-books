@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {getHomeContent} from "../../Store/Actions/genresActions";
 import { connect } from "react-redux";
+import smoothscroll from "smoothscroll-polyfill"
 import Loader from "../Parts/Loader";
 import HomeGenre from "./HomeGenre";
 import "./Home.css";
@@ -16,6 +17,7 @@ const mapDispatchToProps = dispatch => {
 function Home(props) {
   const {getHomeContent} = props;
   useEffect(() => {
+    document.documentElement.scrollTo(0,0);
     getHomeContent();
   }, [getHomeContent])
   

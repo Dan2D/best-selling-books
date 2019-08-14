@@ -1,4 +1,5 @@
 import React from 'react';
+import smoothscroll from "smoothscroll-polyfill";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Header from "../Header/Header";
 import Home from "../Home/Home";
@@ -9,6 +10,7 @@ import Footer from "../Footer/Footer";
 import './App.css';
 
 function App() {
+  smoothscroll.polyfill();
   return (
     <Router basename="/best-selling-books/">
       <div className="App">

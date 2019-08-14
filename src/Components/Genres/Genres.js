@@ -24,6 +24,7 @@ const mapDispatchToProps = dispatch => {
       maxDate = dateFormat(genre.dataset.maxDate);
     }
      useEffect(() => {
+      document.documentElement.scrollTo(0,0);
        if (props.genreLoading){
         genreView(props.match.params.genre);
       }

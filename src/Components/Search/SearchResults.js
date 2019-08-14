@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => {
 }
 function SrchRslt(props) {
     const {getSearchTitle, getSearchAuth} = props;
+    document.documentElement.scrollTo(0,0);
     useEffect(() => {
         if (props.match.params.type === "title"){
             getSearchTitle(props.match.params.text, props.match.params.pg);

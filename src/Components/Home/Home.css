@@ -1,5 +1,5 @@
 .overview-container {
-    margin-top: 115px;
+    margin-top: 120px;
 }
 
 .overview-genre__title {
@@ -49,6 +49,10 @@
     div {
       font-size: 14px;
     }
+
+    .overview-container {
+      margin-top: 115px;
+  }
   
     .overview-genre__title {
       font-size: 18px;
