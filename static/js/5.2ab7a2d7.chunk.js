@@ -1,2 +1,0 @@
-(window["webpackJsonpbest-selling-books"]=window["webpackJsonpbest-selling-books"]||[]).push([[5],{134:function(e,s,n){"use strict";n.r(s);var t=n(0),o=n.n(t);s.default=function(e){return o.a.createElement("div",{className:"book-container__week-list"},o.a.createElement("p",{className:"book-list-duration"},1!==e.wksOnLst?e.wksOnLst+" Weeks On List...":"New This Week"))}}}]);
-//# sourceMappingURL=5.2ab7a2d7.chunk.js.map
