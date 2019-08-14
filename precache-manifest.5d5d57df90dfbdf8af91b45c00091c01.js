@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "558b9168972917daeab8031ffe58c487",
+    "revision": "c5412f347e9501ba896f03174ccc764e",
     "url": "/best-selling-books/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/best-selling-books/static/css/2.cc034990.chunk.css"
   },
   {
-    "revision": "864b6e4c75895f7833ff",
-    "url": "/best-selling-books/static/css/main.7333fa13.chunk.css"
+    "revision": "b092e3de6c647a7568e4",
+    "url": "/best-selling-books/static/css/main.674febfe.chunk.css"
   },
   {
     "revision": "1657ac1bfac9b326277f",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/best-selling-books/static/js/5.4e3e6cbb.chunk.js"
   },
   {
-    "revision": "864b6e4c75895f7833ff",
+    "revision": "b092e3de6c647a7568e4",
     "url": "/best-selling-books/static/js/main.62883d1f.chunk.js"
   },
   {

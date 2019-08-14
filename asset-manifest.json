@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/best-selling-books/static/css/main.7333fa13.chunk.css",
+    "main.css": "/best-selling-books/static/css/main.674febfe.chunk.css",
     "main.js": "/best-selling-books/static/js/main.62883d1f.chunk.js",
     "main.js.map": "/best-selling-books/static/js/main.62883d1f.chunk.js.map",
     "runtime~main.js": "/best-selling-books/static/js/runtime~main.b083e3b7.js",
@@ -15,10 +15,10 @@
     "static/js/5.4e3e6cbb.chunk.js": "/best-selling-books/static/js/5.4e3e6cbb.chunk.js",
     "static/js/5.4e3e6cbb.chunk.js.map": "/best-selling-books/static/js/5.4e3e6cbb.chunk.js.map",
     "index.html": "/best-selling-books/index.html",
-    "precache-manifest.091b109e7b6bf0b4a1de6fea95e9681f.js": "/best-selling-books/precache-manifest.091b109e7b6bf0b4a1de6fea95e9681f.js",
+    "precache-manifest.5d5d57df90dfbdf8af91b45c00091c01.js": "/best-selling-books/precache-manifest.5d5d57df90dfbdf8af91b45c00091c01.js",
     "service-worker.js": "/best-selling-books/service-worker.js",
     "static/css/2.cc034990.chunk.css.map": "/best-selling-books/static/css/2.cc034990.chunk.css.map",
-    "static/css/main.7333fa13.chunk.css.map": "/best-selling-books/static/css/main.7333fa13.chunk.css.map",
+    "static/css/main.674febfe.chunk.css.map": "/best-selling-books/static/css/main.674febfe.chunk.css.map",
     "static/media/404.png": "/best-selling-books/static/media/404.ab11e70c.png"
   }
 }
