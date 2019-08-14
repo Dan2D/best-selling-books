@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
         }
     };
 };
-// TODO(DATE WON'T UPDATE IN DATEBAR)
+
  function Genres(props) {
      const {genreView} = props;
      let minDate, maxDate, genre;
@@ -23,8 +23,10 @@ const mapDispatchToProps = dispatch => {
       maxDate = dateFormat(genre.dataset.maxDate);
     }
      useEffect(() => {
-        genreView(props.match.params.genre, minDate, maxDate);
-     }, [genreView, props.match.params.genre, minDate, maxDate])
+       if (props.genreLoading){
+        genreView(props.match.params.genre);
+      }
+     }, [genreView, props.match.params.genre, props.genreLoading])
 
     if (props.menuLoading || props.genreLoading || props.match.params.genre !== props.genreTxt){
       return <Loader isLoading={props.genreLoading} />

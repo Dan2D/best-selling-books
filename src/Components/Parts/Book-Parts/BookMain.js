@@ -34,7 +34,7 @@ function BookMain(props) {
       </Link>
       <div className="book-container__author-info">
         <p>by</p>
-          <AuthorArray authors={props.author} type={props.type}/>
+        <AuthorArray authors={props.author} type={props.type}/>
       </div>
     </div>
   );

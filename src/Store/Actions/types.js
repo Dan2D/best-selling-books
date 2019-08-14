@@ -28,6 +28,8 @@ export const GET_HOME_CONTENT = 'GET_HOME_CONTENT';
 
 export const GET_NEW_GENRE = 'GET_NEW_GENRE';
 
+export const SET_GENRE_DATES = 'SET_GENRE_DATES';
+
 export const DETAIL_BK_VIEW = 'DETAIL_BK_VIEW';
 
 export const DETAIL_LOAD = 'DETAIL_LOAD';

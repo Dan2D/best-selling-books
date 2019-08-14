@@ -4,6 +4,7 @@ import AuthorArray from "../Parts/Book-Parts/AuthArray";
 import Ratings from "../Parts/Book-Parts/Ratings";
 import {getBookDetail} from "../../Store/Actions/detailActions";
 import {connect} from "react-redux";
+import "./DetailBook.css";
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -31,8 +32,10 @@ function SingleBk (props) {
           <div className="sngl-bk-main__cover-title">
             <img src={props.location.state.bkCover} alt={props.book.title} />
             <h3>{props.book.title}</h3>
-            <p>By </p>
-            <AuthorArray authors={props.book.author}/>
+            <div className="book-container__author-info">
+              <p>by</p>
+              <AuthorArray authors={props.book.author}/>
+            </div>
           </div>
           <div className="sngl-bk-main__dscrpt">
             <h5>Description</h5>

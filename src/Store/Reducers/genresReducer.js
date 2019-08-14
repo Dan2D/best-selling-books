@@ -1,4 +1,4 @@
-import {GET_HOME_CONTENT, GET_NEW_GENRE, GENRE_LOAD, CHANGE_WEEK, UPDATE_CONTENT_DATE} from "../Actions/types";
+import {GET_HOME_CONTENT, GET_NEW_GENRE, SET_GENRE_DATES, GENRE_LOAD, CHANGE_WEEK, UPDATE_CONTENT_DATE} from "../Actions/types";
   
   let initialState = {
        genres: {
@@ -28,13 +28,17 @@ import {GET_HOME_CONTENT, GET_NEW_GENRE, GENRE_LOAD, CHANGE_WEEK, UPDATE_CONTENT
       case GET_NEW_GENRE:
           return {
             ...state,
-            dateMin: new Date(action.dateMin),
-            dateMax: new Date(action.dateMax),
-            dateCurr: new Date(action.dateMax),
             list: action.payload,
             text: action.genreTxt,
             genreLoading: false,
           };
+      case SET_GENRE_DATES:
+        return {
+          ...state,
+          dateMin: new Date(action.dateMin),
+          dateMax: new Date(action.dateMax),
+          dateCurr: new Date(action.dateMax),
+        }
       case CHANGE_WEEK:
         return {
           ...state,

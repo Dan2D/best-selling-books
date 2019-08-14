@@ -2,6 +2,7 @@ import {
     UPDATE_CONTENT_DATE,
     GET_HOME_CONTENT,
     GET_NEW_GENRE,
+    SET_GENRE_DATES,
     CHANGE_WEEK,
     GENRE_LOAD
   } from "./types";
@@ -50,6 +51,14 @@ import {
       });
     };
   };
+
+  export const getGenreDates = (dateMin, dateMax) => {
+    return {
+      type: SET_GENRE_DATES,
+      dateMin,
+      dateMax
+    }
+  }
   
   export const updateGenreDate = (date, genreTxt) => {
     return function(dispatch) {

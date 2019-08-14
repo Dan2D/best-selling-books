@@ -22,7 +22,7 @@ function Searchbar(props) {
 
   function handleSearchSubmit(e) {
     e.preventDefault();
-    if (props.search.text === "" || (props.search.prevSearch === props.search.text && props.search.type === props.search.prevType)){
+    if (props.search.text === "" || (props.search.prevSearch === props.search.text && props.search.type === props.search.prevType && props.content !== "search")){
       return null;
     }
     let searchLnk = document.getElementById("search-link");
@@ -70,7 +70,8 @@ const MemoSearchbar = React.memo(Searchbar, (prevProps, nextProps) => {
 
 const mapStateToProps = (state) => {
   return {
-    search: state.search
+    search: state.search,
+    content: state.content.text
 
   }
 }

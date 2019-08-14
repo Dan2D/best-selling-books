@@ -1,0 +1,89 @@
+:root {--book-size: 28vw;}
+
+.sngl-bk-main,
+.sngl-bk-sub {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+.sngl-bk-main__cover-title {
+    align-self: center;
+  }
+  
+  .sngl-bk-main__cover-title h3 {
+    font-size: 14px;
+  }
+  
+  .sngl-bk-main__cover-title img {
+    width: calc(var(--book-size) + 40vw);
+  }
+  
+  .sngl-bk-main__dscrpt {
+    width: 90vw;
+    margin: 10px 0;
+  }
+  
+  .sngl-bk-main__dscrpt h5 {
+    font-size: 20px;
+  }
+  
+  .sngl-bk-sub {
+    flex-direction:column;
+    margin-bottom: 2vh;
+  }
+
+  .sngl-bk-sub p{
+    margin: 2px;
+  }
+
+  .book-single-container {
+    padding: 0 2vw;
+  }
+  
+  .sngl-bk-main {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+
+  .sngl-bk-main__cover-title img {
+    width: calc(var(--book-size) + 10vw);
+  }
+
+  .sngl-bk-main__cover-title h3 {
+    font-size: 16px;
+  }
+
+  .sngl-bk-main__cover-title button {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 961px) {
+
+    .sngl-bk-main__cover-title {
+        align-self: flex-start;
+      }
+    
+      .sngl-bk-main__cover-title h3 {
+        font-size: 20px;
+      }
+    
+      .sngl-bk-main__cover-title button {
+        font-size: 16px;
+      }
+    
+      .sngl-bk-main__dscrpt p {
+        font-size: 17px;
+      }
+    
+}
+
+@media (min-width: 1281px) {
+
+      .book-single-container .book-container__description {
+        min-width: 100%;
+      }
+}

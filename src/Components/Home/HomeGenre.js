@@ -28,7 +28,7 @@ function HomeGenre(props) {
        className="overview-genre__title" 
        onClick={() => props.dispatch(genreLoading(true))}
       >
-        {props.genre.display_name}
+        {`${props.genre.display_name} ...`}
       </Link>
       <div className="overview-books">
         {bookArr}

@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import {isLoading} from "../../Store/Actions/contentActions";
-import {genreLoading} from "../../Store/Actions/genresActions";
+import {getGenreDates, genreLoading} from "../../Store/Actions/genresActions";
 import {getGenres} from "../../Store/Actions/menuActions";
 import Searchbar from "./Searchbar";
 import Datebar from "./Datebar";
@@ -18,6 +18,9 @@ const mapDispatchToProps = dispatch => {
       getGenres: () => {
         dispatch(getGenres);
       },
+      getGenreDates: (minDate, maxDate) => {
+        dispatch(getGenreDates(minDate, maxDate));
+      },
       genreLoading: (bool) => {
         dispatch(genreLoading(bool))
       }
@@ -28,7 +31,10 @@ function Header(props) {
   const {getGenres, genreLoading} = props;
     useEffect(() => {
       getGenres();
-    },[getGenres])
+
+    },[getGenres]);
+
+
 
   const handleHomeClick = () => {
     if (props.content !== "home"){
@@ -79,6 +85,8 @@ function Header(props) {
 
 const mapStateToProps = state => {
   return {
+    menu: state.menu,
+    genreTxt: state.genres.text,
     menuLoading: state.menu.menuLoading,
     content: state.content.text
   }
