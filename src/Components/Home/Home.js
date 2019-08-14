@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {getHomeContent} from "../../Store/Actions/genresActions";
 import { connect } from "react-redux";
-// import Loading from "../../Loading";
+import Loader from "../Parts/Loader";
 import HomeGenre from "./HomeGenre";
 import "./Home.css";
 
@@ -19,8 +19,8 @@ function Home(props) {
     getHomeContent();
   }, [getHomeContent])
   
-    if (props.genreLoading) {
-      return <div>LOADING...</div>
+    if (props.genreLoading || props.menuLoading) {
+      return <Loader isLoading={props.genreLoading}/>
     }
     if (props.genreLst.length > 0){
       var mainGenres = props.genreLst.slice(0, 5);
@@ -45,6 +45,7 @@ function Home(props) {
 const mapStateToProps = (state) => {
   return {
     genreLst: state.genres.list,
+    menuLoading: state.menu.menuLoading,
     genreLoading: state.genres.genreLoading
   };
 };

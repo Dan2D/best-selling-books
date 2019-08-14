@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Rating from "./Ratings"
-import {API_CALLS} from "../../../Util/APICalls";
+import Ratings from "./Ratings"
+import {API_CALLS, fetchXML} from "../../../Util/APICalls";
 
 const { GR_KEY } = API_CALLS["GR"];
 const CORS = "https://cors-anywhere.herokuapp.com/";
@@ -15,11 +15,9 @@ class BookSub extends Component {
   }
   componentDidMount() {
     let _this = this;
-    fetch(
+    fetchXML(
       `${CORS}https://www.goodreads.com/search/index.xml?key=${GR_KEY}&q=${this.props.isbn}`
     )
-      .then(response => response.text())
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
       .then(data => {
         if (data.querySelector("search total-results").textContent === "0") {
           return 
@@ -42,7 +40,7 @@ class BookSub extends Component {
           Buy this Book
         </a>
         <div className="sub-info__rating">
-          <Rating rating={this.state.rating}/>
+          <Ratings rating={this.state.rating}/>
         </div>
         <a
           href={`https://www.goodreads.com/book/show/${this.state.id}`}

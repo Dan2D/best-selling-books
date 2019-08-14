@@ -8,10 +8,10 @@ function SubMenuLnks(props) {
   function handleGenreClick(e) {
     e.preventDefault();
     let genre = e.currentTarget.dataset.name;
-    let minDate = e.currentTarget.dataset.minDate;
-    let maxDate = e.currentTarget.dataset.maxDate;
-    // props.dispatch(genreView(genre, minDate, maxDate));
+    let dateMin = e.currentTarget.dataset.minDate;
+    let dateMax = e.currentTarget.dataset.maxDate;
     props.dispatch(genreLoading(true));
+    props.dispatch(genreView(genre, dateMin, dateMax));    
     e.target.parentElement.parentElement.style.visibility = "hidden";
     e.target.parentElement.click();
   }

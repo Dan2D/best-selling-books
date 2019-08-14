@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-// import Loading from "../../../Loading";
+import Loader from "../Parts/Loader";
 import AuthorArray from "../Parts/Book-Parts/AuthArray";
 import Ratings from "../Parts/Book-Parts/Ratings";
 import {getBookDetail} from "../../Store/Actions/detailActions";
@@ -20,7 +20,7 @@ function SingleBk (props) {
     }, [getBookDetail, props.match.params.id, props.location.state.bkCover])
 
     if (props.detailLoading){
-      return <div>Loading...</div>
+      return <Loader isLoading={props.detailLoading}/>
     }
 
     setTimeout(() => {document.getElementById("bk-description").innerHTML = props.book.dscrpt;}, 500);

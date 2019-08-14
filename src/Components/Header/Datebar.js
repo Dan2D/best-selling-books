@@ -45,7 +45,7 @@ function Datebar(props) {
     }
     props.changeWeek(newDate);
     newDate = newDate.toISOString().substr(0, 10);
-    if (props.content === "home") {
+    if (props.content.text === "home") {
       props.updateHomeDate(newDate);
     } else {
       props.updateGenreDate(newDate, props.genreTxt);

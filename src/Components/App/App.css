@@ -1,0 +1,123 @@
+.content-container button:hover {
+    text-decoration: underline;
+  }
+  
+  .overview-container,
+  .genre-container,
+  .sngl-bk-container {
+    margin: 135px 10px 0 10px;
+  }
+  
+  .loading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    z-index: -5;
+    opacity: 0;
+    top: 135px;
+    width:100vw;
+    height: calc(100vh - 135px);
+    background: white;
+    transition: all ease 500ms 500ms;
+  }
+  
+  .loading img {
+    height: 100px;
+    perspective: 50px;
+    animation: loading 3000ms linear infinite forwards;
+    animation-iteration-count: 5;
+  }
+  
+  .loading-active {
+    z-index: 1;
+    opacity: 1;
+    transition: all ease 500ms;
+  }
+  
+  .loading-active img {
+    opacity: 1;
+    animation-iteration-count: infinite;
+  }
+  
+  .overview-genre__title {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    margin: 15px 0;
+  }
+  
+  
+  .overview-books,
+  .genre-container__title-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+  .overview-books {
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .genre-container__title-block {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .genre-container__title-block h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 5px 0 0 0;
+  }
+  
+  .genre-container__title-block p {
+    margin: 0 0 5px 0;
+    font-style: italic;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: rotate3d(0, 1, 0, 0deg)
+    }
+    100% {
+      transform: rotate3d(0, 1, 0, 360deg)
+    }
+  }
+  
+  @media (min-width: 768px) {
+    p,
+    a,
+    div {
+      font-size: 14px;
+    }
+  
+    .overview-genre__title {
+      font-size: 18px;
+      padding: 10px 0;
+    }
+  }
+  @media (min-width: 961px) {
+    p,
+    a,
+    div {
+      font-size: 14px;
+    }
+    .content-container {
+      min-height: 90vh;
+      margin-bottom: 10vh;
+    }
+  }
+  
+  @media (min-width: 1281px) {
+    .content-container {
+      margin: var(--nav-height) 5vw 0 2vw;
+    }
+  
+    .genre-container {
+      padding-top: 3vw;
+    }
+  }
+  

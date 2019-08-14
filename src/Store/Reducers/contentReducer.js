@@ -1,4 +1,4 @@
-import {GET_HOME_CONTENT, GET_NEW_GENRE, IS_LOADING} from "../Actions/types";
+import {GET_HOME_CONTENT, GET_NEW_GENRE, DETAIL_BK_VIEW, SEARCH_AUTH, SEARCH_TITLE, IS_LOADING} from "../Actions/types";
   
   let initialState = {
       content: {
@@ -12,13 +12,24 @@ import {GET_HOME_CONTENT, GET_NEW_GENRE, IS_LOADING} from "../Actions/types";
       case GET_HOME_CONTENT:
       return {
         ...state,
-        content: 'home',
+        text: 'home',
       };
       case GET_NEW_GENRE:
           return {
             ...state,
-            content: 'genre',
+            text: 'genre',
           };
+          case DETAIL_BK_VIEW:
+            return {
+              ...state,
+              text: 'detail'
+            }
+      case SEARCH_AUTH:
+      case SEARCH_TITLE:
+        return {
+          ...state,
+          text: 'search'
+        }
       case IS_LOADING:
         return {
           ...state,

@@ -35,7 +35,7 @@ import {
     };
   };
 
-  export const genreView = (genreTxt) => {
+  export const genreView = (genreTxt, dateMin, dateMax = new Date()) => {
     return function(dispatch) {
       fetchJSON(
         `${CORS}https://api.nytimes.com/svc/books/v3/lists/${genreTxt}.json?api-key=${NYT_API_KEY}`
@@ -44,6 +44,8 @@ import {
           type: GET_NEW_GENRE,
           payload: genres.results,
           genreTxt,
+          dateMin,
+          dateMax
         });
       });
     };
@@ -64,7 +66,7 @@ import {
 
   export const changeWeek = (date) => {
     return {type: CHANGE_WEEK,
-    payload: date
+            payload: date
     }
 };
 

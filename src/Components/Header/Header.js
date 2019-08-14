@@ -37,7 +37,7 @@ function Header(props) {
   }
   
   if (props.menuLoading) {
-    return <div>NAV</div>
+    return <></>;
   }
 
   return (

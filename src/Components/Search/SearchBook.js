@@ -12,7 +12,6 @@ function SrchBk(props) {
      e.preventDefault();
      props.dispatch(searchLoading(true));
      e.target.parentElement.click();
-    // return props.onAuthClick(e.target.innerText, "author");
   }
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-// import Loading from '../../Loading';
+import Loader from "../Parts/Loader";
 import {getSearchTitle, getSearchAuth} from "../../Store/Actions/searchActions";
 import {connect} from "react-redux";
 import SearchHeader from "./SearchHeader";
@@ -29,11 +29,11 @@ function SrchRslt(props) {
         }
     }, [getSearchTitle, getSearchAuth, props.match.params])
 
-    if (props.searchLoading){
-      return <div>Loading...</div>
+    if (props.searchLoading || props.menuLoading){
+      return <Loader isLoading={props.searchLoading}/>
     }
 
-    if (props.results == 0) {
+    if (props.results === 0) {
       return <NotFound />;
     }
 
@@ -44,7 +44,6 @@ function SrchRslt(props) {
       return (
         <SearchBook
           key={book.title + indx}
-          onAuthClick={(author, searchType) => getSearchAuth(author, searchType)}
           searchType={props.match.params.type}
           author={book.author}
           indx={book.indx}
@@ -103,6 +102,7 @@ const mapStateToProps = (state) => {
     pg: state.search.pg,
     results: state.search.results,
     author: state.search.author,
+    menuLoading: state.menu.menuLoading,
     searchLoading: state.search.searchLoading
   }
 }

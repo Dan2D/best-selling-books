@@ -9,9 +9,9 @@ export const initialState = {
            
        },
        genres: {
-           dateCurr: "",
-           dateMin: "",
-           dateMax: "",
+           dateCurr: new Date(),
+           dateMin: new Date("2008-06-08"),
+           dateMax: new Date(),
            genreLoading: true,
            list: {},
            text: ""

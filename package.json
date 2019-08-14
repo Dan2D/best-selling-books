@@ -2,6 +2,7 @@
   "name": "best-selling-books",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dan2d.github.io/best-selling-books/",
   "dependencies": {
     "react": "^16.9.0",
     "react-content-loader": "^4.2.2",
@@ -19,6 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "redux-devtools-extension": "^2.13.8"
   }
 }

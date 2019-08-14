@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/best-selling-books/">
       <div className="App">
         <Route path="/" component={Header}/>
         <Switch>

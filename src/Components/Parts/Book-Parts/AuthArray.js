@@ -15,7 +15,7 @@ function AuthorArray(props) {
           }
           return (
             <span key={author}>
-              <Link to={`/search/author=${author.replace(" ", "+")}&pg=1`}
+              <Link to={`/search/author=${author}&pg=1`}
                 className="author-btn"
                 onClick={() => {
                   props.dispatch(searchLoading(true));
