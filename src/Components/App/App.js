@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import Genres from "../Genres/Genres";
 import DetailBook from "../DetailBook/DetailBook";
 import SearchResults from "../Search/SearchResults";
+import Footer from "../Footer/Footer";
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/book/:id"  component={DetailBook} />
           <Route path="/search/:type=:text&pg=:pg" component={SearchResults} />
         </Switch>
+        <Footer/>
       </div>
     </Router>
   );

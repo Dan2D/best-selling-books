@@ -1,4 +1,4 @@
-import {GET_SEARCH_TXT, SEARCH_TYPE, IS_LOADING, NO_DATA, SEARCH_AUTH, SEARCH_TITLE, SEARCH_LOAD} from "../Actions/types";
+import {GET_SEARCH_TXT, SEARCH_TYPE, NO_DATA, SEARCH_AUTH, SEARCH_TITLE, SEARCH_LOAD} from "../Actions/types";
 import {API_CALLS, fetchXML, getAuthId} from "../../Util/APICalls";
   
 const { GR_KEY } = API_CALLS["GR"];
