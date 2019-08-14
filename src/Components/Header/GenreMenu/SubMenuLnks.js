@@ -12,6 +12,7 @@ function SubMenuLnks(props) {
     props.dispatch(genreLoading(true));
     props.dispatch(getGenreDates(dateMin, dateMax));
     e.target.parentElement.parentElement.style.visibility = "hidden";
+    document.documentElement.focus();
     e.target.parentElement.click();
   }
 

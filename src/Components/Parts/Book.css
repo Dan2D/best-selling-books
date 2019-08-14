@@ -117,10 +117,16 @@
   .book-container__ratings {
     margin: 5px 0;
   }
-  
+
+  .booklist-container {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
   .book-container[data-ref="genre"],
   .book-container[data-ref="book"] {
     margin-bottom: 15px;
+    width: 60vw;
   }
   
   .book-container__cover[data-ref="genre"] img {

@@ -167,7 +167,10 @@
   
   .sub-genre--right .genre-menu__btns button {
     align-self: flex-end;
-    text-align: right;
+  }
+
+  .sub-genre--right .genre-menu__btns a{
+    margin: 0 0 2px 2px;
   }
   
   .genre-menu__btns[data-ref="Fiction/Non-Fiction"] button,

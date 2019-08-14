@@ -4,6 +4,7 @@ import Loader from "../Parts/Loader";
 import {genreView} from "../../Store/Actions/genresActions";
 import {isbnAssign, dateFormat, monthDateStatus} from "../../Util/bookHelpers";
 import { connect } from "react-redux";
+import "../Parts/Book.css";
 import "./Genres.css";
 
 const mapDispatchToProps = dispatch => {
