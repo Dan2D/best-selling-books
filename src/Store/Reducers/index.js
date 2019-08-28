@@ -9,5 +9,3 @@ import searchReducer from "./searchReducer";
 const rootReducer = combineReducers({content: contentReducer, detail: detailReducer, genres: genresReducer, menu: menuReducer, search: searchReducer})
 
 export default rootReducer;
-
-// menu: menuReducers, search: searchReducers, date: dateReducers, page: pageReducers
