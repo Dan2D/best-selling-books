@@ -1,6 +1,6 @@
 import React from 'react';
 import smoothscroll from "smoothscroll-polyfill";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import {HashRouter as Router, Switch, Route} from "react-router-dom"
 import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Genres from "../Genres/Genres";

@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import {getHomeContent} from "../../Store/Actions/genresActions";
 import { connect } from "react-redux";
-import smoothscroll from "smoothscroll-polyfill"
 import Loader from "../Parts/Loader";
 import HomeGenre from "./HomeGenre";
 import "./Home.css";

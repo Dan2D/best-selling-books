@@ -13,9 +13,11 @@ import {
   const CORS = "https://cors-anywhere.herokuapp.com/";
 
   export const getHomeContent = dispatch => {
+    console.log("GET HOME CONTENT")
     return fetchJSON(
       `${CORS}https://api.nytimes.com/svc/books/v3/lists/overview.json?current/&api-key=${NYT_API_KEY}`
     ).then(genres => {
+      console.log("HAVE GOT HOME CONTENT")
       dispatch({
         type: GET_HOME_CONTENT,
         payload: genres.results.lists

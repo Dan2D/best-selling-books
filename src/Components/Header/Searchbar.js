@@ -32,23 +32,30 @@ function Searchbar(props) {
 
   return (
     <div className="search">
-      <select
-        className="search search__type"
-        value={props.search.type}
-        onChange={handleSelectUpdate}
-        name="search-options"
-      >
-        <option value="title">Title</option>
-        <option value="author">Author</option>
-      </select>
-      <input
-        className="search search__input"
-        type="text"
-        placeholder="Search..."
-        onChange={handleSearchText}
-        onKeyDown={handleEnter}
-        value={props.search.text}
-      />
+      <label htmlFor="search options">
+        <select
+          id="search options"
+          className="search search__type"
+          value={props.search.type}
+          onChange={handleSelectUpdate}
+          name="search-options"
+        >
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+        </select>
+      </label>
+      <label htmlFor="search input">
+        <input
+          id="search input"
+          name="search input"
+          className="search search__input"
+          type="text"
+          placeholder="Search..."
+          onChange={handleSearchText}
+          onKeyDown={handleEnter}
+          value={props.search.text}
+        />
+      </label>
       <Link 
         id="search-link" 
         to={`/search/${props.search.type}=${props.search.text.replace(" ", "+")}&pg=1`}
