@@ -1,13 +1,11 @@
 import {GET_HOME_CONTENT, GET_NEW_GENRE, DETAIL_BK_VIEW, SEARCH_AUTH, SEARCH_TITLE, IS_LOADING} from "../Actions/types";
   
-  let initialState = {
-      content: {
+  export const initialState = {
         text: "",
         isLoading: false,
-      }
   };
   
-  const contentReducer = (state = initialState, action) => {
+  export const contentReducer = (state = initialState, action) => {
     switch (action.type) {
       case GET_HOME_CONTENT:
       return {

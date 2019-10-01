@@ -8,16 +8,13 @@ import {
   } from "./types";
   import {API_CALLS, fetchJSON} from "../../Util/APICalls";
   
-  
   const { NYT_API_KEY } = API_CALLS["NYT"];
   const CORS = "https://cors-anywhere.herokuapp.com/";
 
   export const getHomeContent = dispatch => {
-    console.log("GET HOME CONTENT")
     return fetchJSON(
       `${CORS}https://api.nytimes.com/svc/books/v3/lists/overview.json?current/&api-key=${NYT_API_KEY}`
     ).then(genres => {
-      console.log("HAVE GOT HOME CONTENT")
       dispatch({
         type: GET_HOME_CONTENT,
         payload: genres.results.lists
@@ -25,17 +22,15 @@ import {
     });
   };
 
-  export const updateHomeDate = date => {
-    return function(dispatch) {
+  export const updateHomeDate = date => dispatch => {
       fetchJSON(
         `${CORS}https://api.nytimes.com/svc/books/v3/lists/overview.json?published_date=${date}&api-key=${NYT_API_KEY}`
       ).then(genres => {
-        dispatch({
+        return dispatch({
           type: UPDATE_CONTENT_DATE,
           payload: genres.results.lists
         });
       });
-    };
   };
 
   export const genreView = (genreTxt, dateMin, dateMax = new Date()) => {
