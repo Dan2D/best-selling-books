@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => {
     return {
         genreView: (genreTxt) => {
             dispatch(genreView(genreTxt));
-        }
+        },        
     };
 };
 
@@ -19,22 +19,21 @@ const mapDispatchToProps = dispatch => {
      const {genreView} = props;
      let minDate, maxDate, genre;
      if (document.querySelector("button[data-name=" + props.genre.list_name_encoded + "]")){
-      genre = document.querySelector("button[data-name=" + props.genre.list_name_encoded + "]");
-      minDate = dateFormat(genre.dataset.minDate);
-      maxDate = dateFormat(genre.dataset.maxDate);
-    }
+        genre = document.querySelector("button[data-name=" + props.genre.list_name_encoded + "]");
+        minDate = dateFormat(genre.dataset.minDate);
+        maxDate = dateFormat(genre.dataset.maxDate);
+      }
+      
      useEffect(() => {
       document.documentElement.scrollTo(0,0);
         genreView(props.match.params.genre);
-        
-     }, [genreView, props.match.params.genre, props.dateCurr])
+     }, [genreView, props.match.params.genre, props.menuLoading])
 
     if (props.menuLoading || props.genreLoading || props.match.params.genre !== props.genreTxt){
-      return <Loader isLoading={props.genreLoading} />
+      return <Loader isLoading={props.genreLoading || props.menuLoading} />
     }
-    document.querySelectorAll("genre-menu__btns").forEach(item => (item.style.visibility = "hidden"));
 
- 
+    document.querySelectorAll("genre-menu__btns").forEach(item => (item.style.visibility = "hidden"));
 
     let bookArr = props.books.map((book, indx) => {
       let isbn = isbnAssign(book);
@@ -65,7 +64,7 @@ const mapDispatchToProps = dispatch => {
     );
   }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     menu: state.menu,
     menuLoading: state.menu.menuLoading,
@@ -74,8 +73,6 @@ const mapStateToProps = (state) => {
     genreTxt: state.genres.text,
     books: state.genres.list.books,
     dateCurr: state.genres.dateCurr,
-    dateMin: state.genres.dateMin,
-    dateMax: state.genres.dateMax,
     genreLoading: state.genres.genreLoading
   };
 };

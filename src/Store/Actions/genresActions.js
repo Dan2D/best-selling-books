@@ -1,5 +1,6 @@
 import * as type from "./types";
   import {API_CALLS, fetchJSON} from "../../Util/APICalls";
+  import store from "../index.js"
   
   const { NYT_API_KEY } = API_CALLS["NYT"];
   const CORS = "https://cors-anywhere.herokuapp.com/";
@@ -30,17 +31,27 @@ import * as type from "./types";
       .catch(err => dispatch({type: type.UPDATE_CONTENT_DATE_FAILURE, payload: err.message}))
   };
 
-  export const genreView = (genreTxt, dateMin, dateMax = new Date()) => dispatch => {
+  export const genreView = (genreTxt) => dispatch => {
     dispatch({type: type.GET_NEW_GENRE})
       fetchJSON(
         `${CORS}https://api.nytimes.com/svc/books/v3/lists/${genreTxt}.json?api-key=${NYT_API_KEY}`
       ).then(genres => {
+        let index;
+        let genreMenu = store.getState().menu.genreMenu;
+        for (let i = 0; i < genreMenu.length; i++){
+          if (genreMenu[i].list_name_encoded === genreTxt){
+            index = i;
+            break;
+          }
+        }
+        let currDate = store.getState().genres.dateCurr
+        if (currDate.getTime() !== new Date(genres.results.published_date).getTime()){
+          dispatch({type: type.SET_GENRE_DATES, dateMax: genres.results.published_date, dateMin: genreMenu[index].oldest_published_date});
+        }
         dispatch({
           type: type.GET_NEW_GENRE_SUCCESS,
           payload: genres.results,
           genreTxt,
-          dateMin,
-          dateMax
         });
       })
       .catch(err => dispatch({type: type.GET_NEW_GENRE_FAILURE, payload: err.message}))

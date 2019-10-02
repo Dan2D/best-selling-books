@@ -17,7 +17,6 @@ import * as type from "../Actions/types";
       case type.GET_NEW_GENRE:
         return {
           ...state,
-          text: "",
           genreLoading: true,
           error: null
         }
