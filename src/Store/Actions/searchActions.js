@@ -1,4 +1,4 @@
-import {GET_SEARCH_TXT, SEARCH_TYPE, NO_DATA, SEARCH_AUTH, SEARCH_TITLE, SEARCH_LOAD} from "../Actions/types";
+import * as type from "../Actions/types";
 import {API_CALLS, fetchXML, getAuthId} from "../../Util/APICalls";
   
 const { GR_KEY } = API_CALLS["GR"];
@@ -6,14 +6,14 @@ const CORS = "https://cors-anywhere.herokuapp.com/";
 
 export function updateSearchTxt(text){
     return {
-        type: GET_SEARCH_TXT,
+        type: type.GET_SEARCH_TXT,
         payload: text
     }
 }
 
 export function updateSearchType(type){
     return {
-        type: SEARCH_TYPE,
+        type: type.SEARCH_TYPE,
         payload: type
     }
 };
@@ -41,7 +41,7 @@ export const getSearchTitle = (searchTxt, pg = 1) => {
         };
       });
       dispatch({
-        type: SEARCH_TITLE,
+        type: type.SEARCH_TITLE,
         searchTxt,
         bookArr,
         totalResults,
@@ -60,7 +60,7 @@ export const getSearchAuth = searchTxt => {
   
           if(id === 0){
             dispatch({
-              type: NO_DATA,
+              type: type.NO_DATA,
             })
             return
           }
@@ -86,7 +86,7 @@ export const getSearchAuth = searchTxt => {
             };
           });
           dispatch({
-            type: SEARCH_AUTH,
+            type: type.SEARCH_AUTH,
             bookArr,
             authorInfo,
             searchTxt
@@ -97,7 +97,7 @@ export const getSearchAuth = searchTxt => {
 
 export const searchLoading = bool => {
   return {
-    type: SEARCH_LOAD,
+    type: type.SEARCH_LOAD,
     payload: bool
   }
 }

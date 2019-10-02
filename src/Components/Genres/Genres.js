@@ -25,10 +25,9 @@ const mapDispatchToProps = dispatch => {
     }
      useEffect(() => {
       document.documentElement.scrollTo(0,0);
-       if (props.genreLoading){
         genreView(props.match.params.genre);
-      }
-     }, [genreView, props.match.params.genre, props.genreLoading])
+        
+     }, [genreView, props.match.params.genre, props.dateCurr])
 
     if (props.menuLoading || props.genreLoading || props.match.params.genre !== props.genreTxt){
       return <Loader isLoading={props.genreLoading} />
@@ -74,6 +73,7 @@ const mapStateToProps = (state) => {
     content: state.content.text,
     genreTxt: state.genres.text,
     books: state.genres.list.books,
+    dateCurr: state.genres.dateCurr,
     dateMin: state.genres.dateMin,
     dateMax: state.genres.dateMax,
     genreLoading: state.genres.genreLoading

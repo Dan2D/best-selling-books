@@ -5,7 +5,8 @@ export const initialState = {
        detail: {
         book: {},
            cover: "",
-           detailLoading: true
+           detailLoading: true,
+           error: null
            
        },
        genres: {
@@ -14,11 +15,13 @@ export const initialState = {
            dateMax: new Date(),
            genreLoading: true,
            list: {},
-           text: ""
+           text: "",
+           error: null
        },
        menu: {
            genreMenu: {},
-           menuLoading: true
+           menuLoading: true,
+           error: null
        },
        search: {
            author: {},
@@ -29,7 +32,8 @@ export const initialState = {
             results: 0,
             searchLoading: true,
             text: "",
-            type: "title"
+            type: "title",
+            error: null
        }
   };
   

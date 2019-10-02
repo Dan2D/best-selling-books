@@ -31,7 +31,6 @@ function Header(props) {
   const {getGenres, genreLoading} = props;
     useEffect(() => {
       getGenres();
-
     },[getGenres]);
 
 

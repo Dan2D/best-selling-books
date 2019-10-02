@@ -21,10 +21,14 @@ export const API_CALLS = {
   
   export const fetchJSON = (input) => {
     return fetch(input).then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Bad Response...");
+      try{
+        if (response.ok) {
+          return response.json();
+        } 
+        throw new Error()
+      }
+      catch(err){
+        console.log(err.message)
       }
     });
   }
@@ -32,10 +36,14 @@ export const API_CALLS = {
   export const fetchXML = (input) => {
     return fetch(input)
       .then(response => {
-        if (response.ok) {
-          return response.text();
-        } else {
-          throw new Error("Bad Response");
+        try{
+          if (response.ok) {
+            return response.text();
+          }
+          throw new Error();
+        }
+        catch(err){
+          console.log(err.message);
         }
       })
       .then(str => new window.DOMParser().parseFromString(str, "text/xml"));

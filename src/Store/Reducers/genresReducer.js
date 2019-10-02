@@ -1,10 +1,10 @@
-import {GET_HOME_CONTENT, GET_NEW_GENRE, SET_GENRE_DATES, GENRE_LOAD, CHANGE_WEEK, UPDATE_CONTENT_DATE} from "../Actions/types";
+import * as type from "../Actions/types";
   
   let initialState = {
        genres: {
-           dateCurr: "",
+           dateCurr: new Date(),
            dateMin: "",
-           dateMax: "",
+           dateMax: new Date(),
            list: {},
            text: ""
        }
@@ -12,39 +12,62 @@ import {GET_HOME_CONTENT, GET_NEW_GENRE, SET_GENRE_DATES, GENRE_LOAD, CHANGE_WEE
   
   const genresReducer = (state = initialState, action) => {
     switch (action.type) {
-      case GET_HOME_CONTENT:
+      case type.GET_HOME_CONTENT :
+      case type.UPDATE_CONTENT_DATE:
+      case type.GET_NEW_GENRE:
+        return {
+          ...state,
+          text: "",
+          genreLoading: true,
+          error: null
+        }
+      case type.GET_HOME_CONTENT_SUCCESS:
       return {
         ...state,
         dateCurr: new Date(),
         text: "",
         list: action.payload,
         genreLoading: false,
+        error: null
       };
-      case UPDATE_CONTENT_DATE:
+      case type.GET_HOME_CONTENT_FAILURE:
+      case type.UPDATE_CONTENT_DATE_FAILURE:
         return {
           ...state,
-          list: action.payload
+          dateCurr: new Date(),
+          dateMin: new Date("2008-06-08"),
+          dateMax: new Date(),
+          genreLoading: false,
+          list: {},
+          text: "",
+          error: action.payload
         }
-      case GET_NEW_GENRE:
+      case type.UPDATE_CONTENT_DATE_SUCCESS:
+        return {
+          ...state,
+          list: action.payload,
+          genreLoading: false
+        }
+      case type.GET_NEW_GENRE_SUCCESS:
           return {
             ...state,
             list: action.payload,
             text: action.genreTxt,
             genreLoading: false,
           };
-      case SET_GENRE_DATES:
+      case type.SET_GENRE_DATES:
         return {
           ...state,
           dateMin: new Date(action.dateMin),
           dateMax: new Date(action.dateMax),
           dateCurr: new Date(action.dateMax),
         }
-      case CHANGE_WEEK:
+      case type.CHANGE_WEEK:
         return {
           ...state,
           dateCurr: action.payload
         }
-      case GENRE_LOAD:
+      case type.GENRE_LOAD:
         return {
           ...state,
           genreLoading: action.payload
