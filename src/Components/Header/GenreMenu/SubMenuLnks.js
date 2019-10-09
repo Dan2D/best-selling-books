@@ -16,24 +16,26 @@ function SubMenuLnks(props) {
   }
 
   function handleMouseOver(e) {
-    let genre = e.currentTarget.dataset.ref;
-    let btn = document.querySelector(`.genre-menu__btn[data-ref="${genre}"]`);
-    if (!btn.classList.contains("open")){
-      return btn.classList.add("open");
+    if (window.innerWidth > 1024){
+      let genre = e.currentTarget.dataset.ref;
+      let btn = document.querySelector(`.genre-menu__btn[data-ref="${genre}"]`);
+      if (!btn.classList.contains("open")){
+        return btn.classList.add("open");
+      }
+      btn.classList.remove("open");
     }
-    btn.classList.remove("open");
+    return;
   }
 
   function genGenreBtns(array) {
-    return array.map(btn => {
+    return array.map((btn, indx) => {
       return (
-        <Link key={btn.display_name} to={`/genre/${btn.list_name_encoded}`}>
+        <Link key={`${btn.display_name}-${indx}`} to={`/genre/${btn.list_name_encoded}`}>
           <button
             data-name={btn.list_name_encoded}
             data-min-date={btn.oldest_published_date}
             data-max-date={btn.newest_published_date}
             onMouseDown={(e) => handleGenreClick(e)}
-            onClick={() => document.querySelectorAll(".genre-menu__btn").forEach(btn => btn.classList.remove("open"))}
           >
             {btn.display_name}
           </button>

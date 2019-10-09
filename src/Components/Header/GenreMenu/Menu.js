@@ -1,42 +1,20 @@
 import React from "react";
 import SubMenu from "./SubMenu";
 import {connect} from "react-redux";
+import {genGenreArr, genGenreMainObj} from "../../../Util/menuHelpers";
 
 function Menu(props) {
   let genreObj = { navSubGenres: [] };
 
- function genGenreArr(filterTxt, flags, searchType) {
-    let regxStr = new RegExp(filterTxt, flags);
-    if (searchType) {
-      return props.menu.filter(genre =>
-        regxStr.test(genre["display_name"])
-      );
-    } else {
-      return props.menu.filter(
-        genre => !regxStr.test(genre["display_name"])
-      );
-    }
-  }
+  let genreFicAndNonArr = genGenreArr(".fiction", "i", true, props.menu);
+  let genreYngAdult = genGenreArr("adult", "i", true, props.menu);
+  let genreKids = genGenreArr("children", "i", true, props.menu);
+  let genreMisc = genGenreArr(".fiction|children|adult", "i", false, props.menu);
+  genGenreMainObj("Fiction/Non-Fiction", genreFicAndNonArr, genreObj);
+  genGenreMainObj("Young Adult", genreYngAdult, genreObj);
+  genGenreMainObj("Children's Books", genreKids, genreObj);
+  genGenreMainObj("Misc.", genreMisc, genreObj);
 
-  function genGenreSubObj(title, array) {
-    let obj = {};
-    obj["title"] = title;
-    obj["array"] = array;
-    return obj;
-  }
-
-  function genGenreMainObj(title, array) {
-    genreObj.navSubGenres.push(genGenreSubObj(title, array));
-  }
-
-  let genreFicAndNonArr = genGenreArr(".fiction", "i", true);
-  let genreYngAdult = genGenreArr("adult", "i", true);
-  let genreKids = genGenreArr("children", "i", true);
-  let genreMisc = genGenreArr(".fiction|children|adult", "i", false);
-  genGenreMainObj("Fiction/Non-Fiction", genreFicAndNonArr);
-  genGenreMainObj("Young Adult", genreYngAdult);
-  genGenreMainObj("Children's Books", genreKids);
-  genGenreMainObj("Misc.", genreMisc);
 
   return (
     <div className="genres">

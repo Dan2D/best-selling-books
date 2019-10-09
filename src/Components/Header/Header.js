@@ -2,9 +2,8 @@ import React, {useEffect} from "react";
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
 import {isLoading} from "../../Store/Actions/contentActions";
-import {getGenreDates, genreLoading} from "../../Store/Actions/genresActions";
+import {genreLoading} from "../../Store/Actions/genresActions";
 import {getGenres} from "../../Store/Actions/menuActions";
-import {dateFormat} from "../../Util/bookHelpers";
 import Searchbar from "./Searchbar";
 import Datebar from "./Datebar";
 import Menu from "./GenreMenu/Menu";
@@ -48,9 +47,9 @@ function Header(props) {
       <div className="nav-top">
         <div className="nav__title-corner">
           <Link to="/">
-          <button className="nav__home-btn" onClick={handleHomeClick}>
-            <img src={require("../../Images/home.png")} alt="home-btn"/>
-          </button>
+            <button className="nav__home-btn" onClick={handleHomeClick}>
+              <img src={require("../../Images/home.png")} alt="home-btn"/>
+            </button>
           </Link>
           <h1 className="nav__site-title">BSB</h1>
         </div>
@@ -60,25 +59,11 @@ function Header(props) {
         </div>
       </div>
       <div className="nav-bottom">
-        <Menu
-          onGenreClick={(genre, minDate, maxDate) => props.onGenreClick(genre, minDate, maxDate)}
-          genreLst={props.navGenres}
-        />
+        <Menu onGenreClick={(genre, minDate, maxDate) => props.onGenreClick(genre, minDate, maxDate)} />
       </div>
     </nav>
   );
 }
-
-// const MemoHeader = React.memo(Nav, (prevProps, nextProps) => {
-//   return (
-//     prevProps.genreTxt === nextProps.genreTxt &&
-//     prevProps.date === nextProps.date &&
-//     prevProps.navGenres === nextProps.navGenres &&
-//     prevProps.searchTxt === nextProps.searchTxt &&
-//     prevProps.searchTyp === nextProps.searchTyp &&
-//     prevProps.content === nextProps.content
-//   );
-// });
 
 const mapStateToProps = state => {
   return {

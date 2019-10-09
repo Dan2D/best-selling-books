@@ -52,12 +52,10 @@ const mapDispatchToProps = dispatch => {
       <div className="genre-container">
         <div className="genre-container__title-block">
           <h3>{props.genre.display_name}</h3>
-          <p>
-            Active from: {minDate} to {maxDate}
-          </p>
+          <p>Active from: {minDate} to {maxDate}</p>
           <p>{monthDateStatus(props.genre.display_name)}</p>
-          </div>
-          <div className="booklist-container">
+        </div>
+        <div className="booklist-container">
           {bookArr}
         </div>
       </div>
