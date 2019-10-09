@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
       }
       
      useEffect(() => {
-      document.documentElement.scrollTo(0,0);
+      document.documentElement.scrollTo(0,0); 
         genreView(props.match.params.genre);
      }, [genreView, props.match.params.genre, props.menuLoading])
 

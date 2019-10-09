@@ -7,19 +7,21 @@ function SubMenuLnks(props) {
 
   function handleGenreClick(e) {
     e.preventDefault();
-    let dateMin = e.currentTarget.dataset.minDate;
-    let dateMax = e.currentTarget.dataset.maxDate;
-    props.dispatch(genreLoading(true));
-    props.dispatch(getGenreDates(dateMin, dateMax));
-    e.target.parentElement.parentElement.style.visibility = "hidden";
-    document.documentElement.focus();
-    e.target.parentElement.click();
+      let dateMin = e.currentTarget.dataset.minDate;
+      let dateMax = e.currentTarget.dataset.maxDate;
+      props.dispatch(genreLoading(true));
+      props.dispatch(getGenreDates(dateMin, dateMax));         
+      document.documentElement.focus();
+      e.target.click();
   }
 
-  function handleSubGenreMenu(e) {
-    e.target.style.visibility = "hidden";
-    e.target.parentElement.firstChild.firstChild.style.color = "";
-    e.target.parentElement.firstChild.style.background = "";
+  function handleMouseOver(e) {
+    let genre = e.currentTarget.dataset.ref;
+    let btn = document.querySelector(`.genre-menu__btn[data-ref="${genre}"]`);
+    if (!btn.classList.contains("open")){
+      return btn.classList.add("open");
+    }
+    btn.classList.remove("open");
   }
 
   function genGenreBtns(array) {
@@ -30,7 +32,8 @@ function SubMenuLnks(props) {
             data-name={btn.list_name_encoded}
             data-min-date={btn.oldest_published_date}
             data-max-date={btn.newest_published_date}
-            onMouseDown={handleGenreClick}
+            onMouseDown={(e) => handleGenreClick(e)}
+            onClick={() => document.querySelectorAll(".genre-menu__btn").forEach(btn => btn.classList.remove("open"))}
           >
             {btn.display_name}
           </button>
@@ -44,7 +47,8 @@ function SubMenuLnks(props) {
       className="genre-menu__btns"
       data-ref={props.title}
       tabIndex="-1"
-      onBlur={e => handleSubGenreMenu(e)}
+      onMouseEnter={(e) => handleMouseOver(e)}
+      onMouseLeave={(e) => handleMouseOver(e)}
     >
       {genGenreBtns(props.subGenres)}
     </div>

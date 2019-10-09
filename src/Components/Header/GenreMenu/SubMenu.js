@@ -3,13 +3,15 @@ import SubMenuLnks from "./SubMenuLnks";
 
 function SubMenu(props) {
   function handleGenreClick(e) {
-    e.currentTarget.querySelector("h5").style.color = "white";
-    e.currentTarget.style.background = "#AAA58E";
-    let subGenre = document.querySelector(
-      '[data-ref="' + e.target.innerText + '"]'
-    );
-    subGenre.style.visibility = "visible";
-    subGenre.focus();
+    // let btn = e.currentTarget;
+    // if (btn.classList.contains("open")){
+    //   return btn.classList.remove("open");
+    // }
+    // e.currentTarget.classList.add("open");
+  }
+
+  function handleGenreBlur() {
+    return document.querySelectorAll(".genre-menu__btn").forEach(btn => btn.classList.remove("open"));
   }
 
   function genGenreLst(genreArr) {
@@ -20,7 +22,9 @@ function SubMenu(props) {
       }
       return (
         <div key={genre.title} className={"genre-menu__sub-genre" + modifier}>
-          <button onClick={e => handleGenreClick(e)}>
+          <button className="genre-menu__btn" data-ref={genre.title} 
+          onClick={e => handleGenreClick(e)} onBlur={handleGenreBlur} >
+            
             <h5>{genre.title}</h5>
           </button>
           <SubMenuLnks
