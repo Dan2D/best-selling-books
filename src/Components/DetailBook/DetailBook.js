@@ -37,31 +37,23 @@ function SingleBk (props) {
               <p>by</p>
               <AuthorArray authors={props.book.author}/>
             </div>
+            <div className="sngl-bk-sub">
+              <Ratings rating={props.book.rating}/>
+              <p>{`Total Pg: ${props.book.pgNum}`}</p>
+              <p>{`ISBN13: ${props.book.isbn13}`}</p>
+              <p>{`Published: ${props.book.pubMt}/${props.book.pubDy}/${props.book.pubYr}`}</p>
+              <a href={`https://www.goodreads.com/book/show/${props.id}`} rel="noopener noreferrer" target="_blank"> 
+                Read Reviews
+              </a>
+              <a className="book-buy-link" href={props.location.state.buyLnk.url} rel="noopener noreferrer" target="_blank">
+                Buy this Book
+              </a>
+            </div>
           </div>
           <div className="sngl-bk-main__dscrpt">
             <h5>Description</h5>
             <p id="bk-description"></p>
           </div>
-        </div>
-        <div className="sngl-bk-sub">
-          <Ratings rating={props.book.rating}/>
-          <p>{`Total Pg: ${props.book.pgNum}`}</p>
-          <p>{`ISBN13: ${props.book.isbn13}`}</p>
-          <p>{`Published: ${props.book.pubMt}/${props.book.pubDy}/${props.book.pubYr}`}</p>
-          <a
-          href={`https://www.goodreads.com/book/show/${props.id}`}
-          rel="noopener noreferrer"
-          target="_blank"
-        > Read Reviews
-        </a>
-        <a
-          className="book-buy-link"
-          href={props.location.state.buyLnk.url}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Buy this Book
-        </a>
         </div>
       </div>
     );

@@ -6,6 +6,7 @@
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
+    flex-wrap: wrap;
   }
 
 .sngl-bk-main__cover-title {
@@ -20,18 +21,18 @@
     width: calc(var(--book-size) + 40vw);
   }
   
-  .sngl-bk-main__dscrpt {
-    width: 90vw;
-    margin: 10px 0;
-  }
-  
   .sngl-bk-main__dscrpt h5 {
     font-size: 20px;
+    margin: 0;
+  }
+
+  .sngl-bk-main__dscrpt p {
+    margin: 10px 20px 20px 5px;
   }
   
   .sngl-bk-sub {
     flex-direction:column;
-    margin-bottom: 2vh;
+    margin: 20px 0;
   }
 
   .sngl-bk-sub p{
@@ -41,23 +42,33 @@
   .book-single-container {
     padding: 0 2vw;
   }
-  
-  .sngl-bk-main {
-    flex-direction: column;
-  }
 
   @media (min-width: 768px) {
+    .sngl-bk-container {
+      min-height: 100vh;
+    }
 
   .sngl-bk-main__cover-title img {
     width: calc(var(--book-size) + 10vw);
   }
 
   .sngl-bk-main__cover-title h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .sngl-bk-main__cover-title button {
     font-size: 14px;
+  }
+
+  .sngl-bk-main__dscrpt {
+    flex: 2;
+    margin-left: 30px;
+  }
+
+  .sngl-bk-main__dscrpt p {
+    position: absolute;
+    font-size: 16px;
+    margin-right: 30px;
   }
 }
 
@@ -77,6 +88,8 @@
     
       .sngl-bk-main__dscrpt p {
         font-size: 17px;
+        margin-right: auto;
+        max-width: 60vw;
       }
     
 }
